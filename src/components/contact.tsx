@@ -63,7 +63,7 @@ const formFields = [
 
 const ContactSection = () => {
   return (
-    <section className="py-32">
+    <section className="py-32 px-2">
       <div className="container mx-auto">
         <div className="flex flex-col gap-6 py-4 lg:py-8">
           <Badge
