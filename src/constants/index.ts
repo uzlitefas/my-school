@@ -1,3 +1,10 @@
+export const mainColors = {
+color1:"#a3f7b5",
+color2:"#72e0ac",
+color3:"#51bea1",
+color4:"#42a59f",
+}
+
 export const STUDENTS = [
   {
     id: 1,

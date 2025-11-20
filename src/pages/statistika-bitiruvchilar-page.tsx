@@ -36,13 +36,13 @@ export default function StatistikaBitiruvchilarPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 p-6">
-      <div className="container mx-auto">
+    <div className="min-h-screen bg-foreground/2 p-6">
+      <div className="container mx-auto my-30">
         <header className="mb-6 text-center">
           <h1 className="text-4xl font-bold mb-2">
             Statistika Bitiruvchilari Natijalari
           </h1>
-          <p className="text-gray-600 max-w-xl mx-auto">
+          <p className="text-foreground/60 max-w-xl mx-auto">
             Maktab bitiruvchilari ro'yxati. Qidiruv maydoniga ism yoki yil yozib
             "Qidirish" tugmasini bosing.
           </p>
@@ -54,7 +54,7 @@ export default function StatistikaBitiruvchilarPage() {
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={(e) => e.key === "Enter" && handleSearch()}
             placeholder="Ism yoki yil"
-            className="flex-1 max-[470px]:w-full p-2 px-3 rounded-lg border border-gray-300 bg-white"
+            className="flex-1 max-[470px]:w-full p-2 px-3 rounded-lg border border-foreground/30 bg-background"
           />
           <Button
             size={"lg"}
@@ -74,41 +74,41 @@ export default function StatistikaBitiruvchilarPage() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <Card className="rounded-2xl shadow-lg bg-white">
+          <Card className="rounded-2xl shadow-lg bg-background">
             <CardContent className="p-6">
               <h2 className="text-xl font-semibold mb-2">Jami talabalar</h2>
-              <p className="text-gray-700 text-base">{STUDENTS.length}</p>
+              <p className="text-foreground/70 text-base">{STUDENTS.length}</p>
             </CardContent>
           </Card>
-          <Card className="rounded-2xl shadow-lg bg-white">
+          <Card className="rounded-2xl shadow-lg bg-background">
             <CardContent className="p-6">
               <h2 className="text-xl font-semibold mb-2">Qidiruv natijalari</h2>
-              <p className="text-gray-700 text-base">
+              <p className="text-foreground/70 text-base">
                 {filtered.length} topildi
               </p>
             </CardContent>
           </Card>
-          <Card className="rounded-2xl shadow-lg bg-white">
+          <Card className="rounded-2xl shadow-lg bg-background">
             <CardContent className="p-6">
               <h2 className="text-xl font-semibold mb-2">So‘nggi so‘rov</h2>
-              <p className="text-gray-700 text-base">{submittedQuery || "—"}</p>
+              <p className="text-foreground/70 text-base">{submittedQuery || "—"}</p>
             </CardContent>
           </Card>
         </div>
 
-        <section className="bg-white rounded-2xl shadow p-6">
+        <section className="rounded-2xl border shadow p-6">
           <h2 className="text-2xl font-semibold mb-4">
             Topilgan bitiruvchilar
           </h2>
           {filtered.length === 0 ? (
-            <p className="text-gray-500">
+            <p className="text-foreground/50">
               Natija topilmadi — boshqa so‘z bilan qidiring.
             </p>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="text-sm text-gray-600 border-b">
+                  <tr className="text-sm text-foreground/60 border-b">
                     <th className="p-3">#</th>
                     <th className="p-3">Ismi</th>
                     <th className="p-3">Familyasi</th>
@@ -122,7 +122,7 @@ export default function StatistikaBitiruvchilarPage() {
                   {filtered.map((s, idx) => (
                     <tr
                       key={s.id}
-                      className="odd:bg-gray-50 cursor-pointer"
+                      className="odd:bg-foreground/2 cursor-pointer"
                       onClick={() => setSelected(s)}
                     >
                       <td className="p-3 align-top">{idx + 1}</td>

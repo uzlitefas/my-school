@@ -22,6 +22,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { ModeToggle } from "./mode-toggle";
 
 interface MenuItem {
   title: string;
@@ -56,77 +57,78 @@ const Navbar = ({
     url: "/",
     src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
     alt: "logo",
-    title: "school Logo",
+    title: "1-Maktab",
   },
   menu = [
-    { title: "Home", url: "#" },
+    { title: "Asosiy bo'lim", url: "/" },
     {
-      title: "Products",
-      url: "#",
+      title: "Fanlar",
+      url: "/fanlar",
       items: [
         {
-          title: "Blog",
-          description: "The latest industry news, updates, and info",
+          title: "Bosh bo'lim",
+          description: "Fanlar bo'imini bosh qismi",
           icon: <Book className="size-5 shrink-0" />,
-          url: "#",
+          url: "/fanlar/#",
         },
         {
-          title: "Company",
-          description: "Our mission is to innovate and empower the world",
+          title: "Ta'lim Yo'nalishlari",
+          description: "Har bir o'quvchining qobiliyatiga mos yo'nalishni tanlash imkoniyati",
           icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
+          url: "/fanlar/#talim",
         },
         {
-          title: "Careers",
-          description: "Browse job listing and discover our workspace",
+          title: "Fanlar",
+          description: "Zamonaviy usullar bilan o'qitiladigan turli fanlar",
           icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
+          url: "/fanlar/#fanlar",
         },
         {
-          title: "Support",
+          title: "Yutuqlarimiz",
           description:
-            "Get in touch with our support team or visit our community forums",
+            "O'quvchilarimizning erishgan natijalari",
           icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
+          url: "/fanlar/#yutiqlar",
         },
       ],
     },
     {
-      title: "Resources",
-      url: "#",
+      title: "Maktab",
+      url: "/maktab",
       items: [
         {
-          title: "Help Center",
-          description: "Get all the answers you need right here",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Contact Us",
-          description: "We are here to help you with any questions you have",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Status",
-          description: "Check the current status of our services and APIs",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "#",
-        },
-        {
-          title: "Terms of Service",
-          description: "Our terms and conditions for using our services",
+          title: "Bosh bo'lim",
+          description: "Maktab bo'imini bosh qismi",
           icon: <Book className="size-5 shrink-0" />,
-          url: "#",
+          url: "/maktab/#",
+        },
+        {
+          title: "Maktab direktori",
+          description: "Maktab direktori haqida",
+          icon: <Trees className="size-5 shrink-0" />,
+          url: "/maktab/#direktor",
+        },
+        {
+          title: "O'qtuvchilar haqida",
+          description: "maktabdagi oqtuvchilarimiz haqida",
+          icon: <Sunset className="size-5 shrink-0" />,
+          url: "/maktab/#fanlar",
+        },
+        {
+          title: "Maktab tarixi",
+          description:
+            "Maktabimizning tarixi haqida",
+          icon: <Zap className="size-5 shrink-0" />,
+          url: "/maktab/#yutiqlar",
         },
       ],
     },
     {
-      title: "Pricing",
-      url: "#",
+      title: "Bitiruvchilar",
+      url: "/bitiruvchilar",
     },
     {
-      title: "Blog",
+      title: "Galareya",
       url: "#",
     },
   ],
@@ -136,7 +138,7 @@ const Navbar = ({
   },
 }: Navbar1Props) => {
   return (
-    <section className="py-4 px-2">
+    <section className="py-4 px-2 fixed z-50 w-full bg-background">
       <div className="container mx-auto">
         {/* Desktop Menu */}
         <nav className="hidden items-center justify-between lg:flex">
@@ -161,6 +163,7 @@ const Navbar = ({
             </div>
           </div>
           <div className="flex gap-2">
+            <ModeToggle/>
             <Button asChild variant="outline" size="sm">
               <a href={auth.login.url}>{auth.login.title}</a>
             </Button>
@@ -189,7 +192,7 @@ const Navbar = ({
               </SheetTrigger>
               <SheetContent className="overflow-y-auto">
                 <SheetHeader>
-                  <SheetTitle>
+                  <SheetTitle className="flex gap-3">
                     <a href={logo.url} className="flex items-center gap-2">
                       <img
                         src={logo.src}
@@ -197,6 +200,7 @@ const Navbar = ({
                         alt={logo.alt}
                       />
                     </a>
+                    <ModeToggle/>
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-6 p-4">

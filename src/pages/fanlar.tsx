@@ -61,7 +61,7 @@ export default function FanlarPage() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
-      <section className="relative h-[700px] flex items-center justify-center overflow-hidden">
+      <section id="#" className="relative h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
             src="https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg?auto=compress&cs=tinysrgb&w=1920"
@@ -150,7 +150,7 @@ export default function FanlarPage() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-white">
+      <section id="talim" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -232,7 +232,7 @@ export default function FanlarPage() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-slate-50">
+      <section id="fanlar" className="py-20 px-4 bg-slate-50">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
@@ -336,7 +336,7 @@ export default function FanlarPage() {
         </div>
       </section>
 
-      <section className="py-20 px-4 bg-white">
+      <section id="yutiqlar" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
