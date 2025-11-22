@@ -6,6 +6,7 @@ import {
   SquareKanban,
   WandSparkles,
 } from "lucide-react";
+import React from "react";
 
 interface Feature {
   heading: string;
@@ -16,68 +17,87 @@ interface Feature {
 interface FeatureProps {
   title?: string;
   features?: Feature[];
-  buttonText?: string;
-  buttonUrl?: string;
 }
 
 const Feature = ({
-  title = "Fully featured components for Shadcn UI & Tailwind",
+  title = "Maktabimizning afzalliklari",
   features = [
     {
-      heading: "Quality",
+      heading: "Sifat",
       description:
-        "Built with attention to detail and best practices. Every component is thoroughly tested and follows modern React patterns for reliability and performance.",
-      icon: <GitPullRequest className="w-6 h-6" />,
+        "Darslar va materiallar yuqori sifatda tayyorlangan. Har bir fan darslari o‘quvchilarning tushunishiga qulay va samarali.",
+      icon: <GitPullRequest />,
     },
     {
-      heading: "Experience",
+      heading: "Tajriba",
       description:
-        "Crafted with user experience in mind. Each component is designed to be intuitive, accessible, and provide smooth interactions across all devices.",
-      icon: <SquareKanban className="w-6 h-6" />,
+        "O‘quvchilarning qulayligi va oson tushunishiga e’tibor qaratilgan. Darslar interaktiv va qiziqarli shaklda o‘tiladi.",
+      icon: <SquareKanban />,
     },
     {
-      heading: "Support",
+      heading: "Qo‘llab-quvvatlash",
       description:
-        "Comprehensive documentation and community support. Get help when you need it with detailed guides, examples, and active community assistance.",
-      icon: <RadioTower className="w-6 h-6" />,
+        "O‘qituvchilar va ota-onalar uchun to‘liq ma’lumot va yordam mavjud. Har doim savollarga javob beriladi va maslahatlar taqdim etiladi.",
+      icon: <RadioTower />,
     },
     {
-      heading: "Innovation",
+      heading: "Yangi yondashuvlar",
       description:
-        "Cutting-edge design patterns and modern web technologies. Stay ahead with the latest trends in UI/UX design and development practices.",
-      icon: <WandSparkles className="w-6 h-6" />,
+        "O‘quv jarayonida zamonaviy metodlar qo‘llaniladi. Innovatsion darslar o‘quvchilarning bilimini oshiradi.",
+      icon: <WandSparkles />,
     },
     {
-      heading: "Results",
+      heading: "Natijalar",
       description:
-        "Proven track record of successful implementations. These components have been battle-tested in real-world applications and deliver consistent results.",
-      icon: <Layers className="w-6 h-6" />,
+        "O‘quvchilarimizning bilim darajasi va muvaffaqiyatlari bizning ishonchimiz belgisi. Ular imtihonlarda va tanlovlarda yaxshi natija ko‘rsatadi.",
+      icon: <Layers />,
     },
     {
-      heading: "Efficiency",
+      heading: "Samaradorlik",
       description:
-        "Optimized for performance and developer productivity. Lightweight, fast-loading components that help you build faster without compromising on quality.",
-      icon: <BatteryCharging className="w-6 h-6" />,
+        "Darslar samarali va oson o‘zlashtiriladigan qilib tuzilgan. Vaqtni tejash va bilim olishni tezlashtirishga yordam beradi.",
+      icon: <BatteryCharging />,
     },
   ],
 }: FeatureProps) => {
   return (
-    <section className="py-32">
+    <section className="py-28">
       <div className="container mx-auto">
         {title && (
           <div className="mx-auto mb-16 max-w-3xl text-center">
-            <h2 className="text-4xl font-medium lg:text-5xl">{title}</h2>
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold mb-6 leading-tight">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#99BAB9] to-[#FAEDCD]">
+                {title}
+              </span>
+            </h1>
+            <p className="mt-3 text-[#99BAB9]">
+              Bizning maktabning eng yaxshi afzalliklari bilan tanishing
+            </p>
           </div>
         )}
 
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, i) => (
-            <div key={i} className="flex flex-col items-start">
-              <div className="bg-accent mb-5 flex h-16 w-16 items-center justify-center rounded-full">
-                {feature.icon}
+            <div
+              key={i}
+              className="p-7 rounded-2xl bg-white shadow-md border border-[#CDD4B1] hover:shadow-lg hover:-translate-y-2 transition-all duration-300 group"
+            >
+              {/* Icon */}
+              <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-r from-[#99BAB9] to-[#FAEDCD] transition-transform duration-300 group-hover:scale-110">
+                {React.cloneElement(feature.icon as React.ReactElement, {
+                  className: "w-7 h-7 text-white",
+                })}
               </div>
-              <h3 className="mb-2 text-xl font-semibold">{feature.heading}</h3>
-              <p className="text-muted-foreground">{feature.description}</p>
+
+              {/* Heading */}
+              <h3 className="mb-3 text-2xl font-semibold text-[#7C9F9E]">
+                {feature.heading}
+              </h3>
+
+              {/* Description */}
+              <p className="text-[#99BAB9] leading-relaxed">
+                {feature.description}
+              </p>
             </div>
           ))}
         </div>
