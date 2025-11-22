@@ -23,6 +23,7 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { ModeToggle } from "./mode-toggle";
+import { Link } from "react-router-dom";
 
 interface MenuItem {
   title: string;
@@ -66,29 +67,22 @@ const Navbar = ({
       url: "/fanlar",
       items: [
         {
-          title: "Bosh bo'lim",
-          description: "Fanlar bo'imini bosh qismi",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/fanlar/#",
-        },
-        {
-          title: "Ta'lim Yo'nalishlari",
-          description: "Har bir o'quvchining qobiliyatiga mos yo'nalishni tanlash imkoniyati",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/fanlar/#talim",
-        },
-        {
           title: "Fanlar",
-          description: "Zamonaviy usullar bilan o'qitiladigan turli fanlar",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/fanlar/#fanlar",
+          description: "Fanlar bo'imi",
+          icon: <Book className="size-5 shrink-0" />,
+          url: "/fanlar",
         },
         {
-          title: "Yutuqlarimiz",
-          description:
-            "O'quvchilarimizning erishgan natijalari",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/fanlar/#yutiqlar",
+          title: "O'quv markazlar",
+          description: "O'qishga kirish uchgun joylar",
+          icon: <Trees className="size-5 shrink-0" />,
+          url: "/fanlar/centers",
+        },
+        {
+          title: "Togaraklar",
+          description: "Togarak va ular na",
+          icon: <Sunset className="size-5 shrink-0" />,
+          url: "/fanlar/courses",
         },
       ],
     },
@@ -97,40 +91,33 @@ const Navbar = ({
       url: "/maktab",
       items: [
         {
-          title: "Bosh bo'lim",
-          description: "Maktab bo'imini bosh qismi",
+          title: "1-Maktab",
+          description: "Maktab haqida malumotlar",
           icon: <Book className="size-5 shrink-0" />,
-          url: "/maktab/#",
-        },
-        {
-          title: "Maktab direktori",
-          description: "Maktab direktori haqida",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/maktab/#direktor",
-        },
-        {
-          title: "O'qtuvchilar haqida",
-          description: "maktabdagi oqtuvchilarimiz haqida",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/maktab/#fanlar",
+          url: "/maktab",
         },
         {
           title: "Maktab tarixi",
+          description: "Maktabimizning tarixi haqida",
+          icon: <Trees className="size-5 shrink-0" />,
+          url: "/maktab/history",
+        },
+        {
+          title: "Bitiruvchilar haqida",
+          description: "maktabdagi bitiruvchilarimiz haqida",
+          icon: <Sunset className="size-5 shrink-0" />,
+          url: "/maktab/bitiruvchilar",
+        },
+        {
+          title: "Maktab Galareyasi",
           description:
-            "Maktabimizning tarixi haqida",
+            "Maktabimizning Galareyasi",
           icon: <Zap className="size-5 shrink-0" />,
-          url: "/maktab/#yutiqlar",
+          url: "/maktab/galarey",
         },
       ],
     },
-    {
-      title: "Bitiruvchilar",
-      url: "/bitiruvchilar",
-    },
-    {
-      title: "Galareya",
-      url: "#",
-    },
+    { title: "Qoidalar", url: "/rules" },
   ],
   auth = {
     login: { title: "Login", url: "#" },
@@ -144,7 +131,7 @@ const Navbar = ({
         <nav className="hidden items-center justify-between lg:flex">
           <div className="flex items-center gap-6">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
+            <Link to={logo.url} className="flex items-center gap-2">
               <img
                 src={logo.src}
                 className="max-h-8 dark:invert"
@@ -153,7 +140,7 @@ const Navbar = ({
               <span className="text-lg font-semibold tracking-tighter">
                 {logo.title}
               </span>
-            </a>
+            </Link>
             <div className="flex items-center">
               <NavigationMenu>
                 <NavigationMenuList>
@@ -177,13 +164,13 @@ const Navbar = ({
         <div className="block lg:hidden">
           <div className="flex items-center justify-between">
             {/* Logo */}
-            <a href={logo.url} className="flex items-center gap-2">
+            <Link to={logo.url} className="flex items-center gap-2">
               <img
                 src={logo.src}
                 className="max-h-8 dark:invert"
                 alt={logo.alt}
               />
-            </a>
+            </Link>
             <Sheet>
               <SheetTrigger asChild>
                 <Button variant="outline" size="icon">
@@ -214,10 +201,10 @@ const Navbar = ({
 
                   <div className="flex flex-col gap-3">
                     <Button asChild variant="outline">
-                      <a href={auth.login.url}>{auth.login.title}</a>
+                      <Link to={auth.login.url}>{auth.login.title}</Link>
                     </Button>
                     <Button asChild>
-                      <a href={auth.signup.url}>{auth.signup.title}</a>
+                      <Link to={auth.signup.url}>{auth.signup.title}</Link>
                     </Button>
                   </div>
                 </div>
@@ -283,9 +270,9 @@ const renderMobileMenuItem = (item: MenuItem) => {
 
 const SubMenuLink = ({ item }: { item: MenuItem }) => {
   return (
-    <a
+    <Link
       className="hover:bg-muted hover:text-accent-foreground flex min-w-80 select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
-      href={item.url}
+      to={item.url}
     >
       <div className="text-foreground">{item.icon}</div>
       <div>
@@ -296,7 +283,7 @@ const SubMenuLink = ({ item }: { item: MenuItem }) => {
           </p>
         )}
       </div>
-    </a>
+    </Link>
   );
 };
 

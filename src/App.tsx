@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Outlet, Route, Routes } from "react-router-dom";
 import Footer from "./components/shared/footer";
 import { Navbar } from "./components/shared/navbar";
 import HomePage from "./pages/home";
@@ -20,15 +20,20 @@ function App() {
           }
         />
         <Route
-          path="/bitiruvchilar"
+          path="/maktab"
           element={
             <>
               <Navbar />
-              <StatistikaBitiruvchilarPage />
+              <Outlet/>
               <Footer />
             </>
           }
-        />
+        >
+          <Route path="" element={"maktab"} />
+          <Route path="history" element={"maktab tarixi"} />
+          <Route path="bitiruvchilar" element={<StatistikaBitiruvchilarPage/>} />
+          <Route path="galarey" element={"maktab galareya"} />
+        </Route>
         <Route
           path="/fanlar"
           element={

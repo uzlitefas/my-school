@@ -60,7 +60,7 @@ export default function FanlarPage() {
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-slate-50 to-slate-100">
+    <div className="min-h-screen bg-gradient-to-b from-background/5 to-background/10">
       <section id="#" className="relative h-[700px] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
           <img
@@ -95,54 +95,54 @@ export default function FanlarPage() {
           </Button>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-slate-50 to-transparent z-10" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background/50 to-transparent z-10" />
       </section>
 
       <section className="container py-16 px-4 mx-auto -mt-20 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <Card className="bg-white/95 backdrop-blur-sm border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <Card className="bg-background/95 backdrop-blur-sm border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
             <CardContent className="pt-6">
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-blue-100 rounded-full">
-                  <Users className="w-8 h-8 text-blue-600" />
+                <div className="p-3 bg-foreground/10 rounded-full">
+                  <Users className="w-8 h-8 text-blue-500" />
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-slate-900">
+                  <p className="text-3xl font-bold text-foreground/90">
                     {schoolInfo.studentsCount}
                   </p>
-                  <p className="text-sm text-slate-600">O'quvchilar</p>
+                  <p className="text-sm text-slate-500">O'quvchilar</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/95 backdrop-blur-sm border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <Card className="bg-background/95 backdrop-blur-sm border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
             <CardContent className="pt-6">
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-green-100 rounded-full">
-                  <GraduationCap className="w-8 h-8 text-green-600" />
+                <div className="p-3 bg-foreground/10 rounded-full">
+                  <GraduationCap className="w-8 h-8 text-green-500" />
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-slate-900">
+                  <p className="text-3xl font-bold text-foreground/90">
                     {schoolInfo.teachersCount}
                   </p>
-                  <p className="text-sm text-slate-600">O'qituvchilar</p>
+                  <p className="text-sm text-slate-500">O'qituvchilar</p>
                 </div>
               </div>
             </CardContent>
           </Card>
 
-          <Card className="bg-white/95 backdrop-blur-sm border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+          <Card className="bg-background/95 backdrop-blur-sm border-2 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
             <CardContent className="pt-6">
               <div className="flex items-center gap-4">
-                <div className="p-3 bg-orange-100 rounded-full">
-                  <Building className="w-8 h-8 text-orange-600" />
+                <div className="p-3 bg-background/10 rounded-full">
+                  <Building className="w-8 h-8 text-orange-500" />
                 </div>
                 <div>
-                  <p className="text-3xl font-bold text-slate-900">
+                  <p className="text-3xl font-bold text-foreground/90">
                     {schoolInfo.classroomsCount}
                   </p>
-                  <p className="text-sm text-slate-600">Xonalar</p>
+                  <p className="text-sm text-slate-500">Xonalar</p>
                 </div>
               </div>
             </CardContent>
@@ -150,13 +150,13 @@ export default function FanlarPage() {
         </div>
       </section>
 
-      <section id="talim" className="py-20 px-4 bg-white">
+      <section id="talim" className="py-20 px-4 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground/90 mb-4">
               Ta'lim Yo'nalishlari
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
               Har bir o'quvchining qobiliyatiga mos yo'nalishni tanlash
               imkoniyati
             </p>
@@ -183,7 +183,7 @@ export default function FanlarPage() {
                   <div
                     className={`absolute inset-0 bg-gradient-to-t ${direction.color} opacity-60 group-hover:opacity-70 transition-opacity`}
                   />
-                  <div className="absolute top-4 right-4 p-2 bg-white/90 rounded-full">
+                  <div className="absolute top-4 right-4 p-2 bg-background/9 text-white rounded-full">
                     {iconMap[direction.icon]}
                   </div>
                 </div>
@@ -232,13 +232,13 @@ export default function FanlarPage() {
         </div>
       </section>
 
-      <section id="fanlar" className="py-20 px-4 bg-slate-50">
+      <section id="fanlar" className="py-20 px-4 bg-background/5">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground/90 mb-4">
               Fanlar
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
               Zamonaviy usullar bilan o'qitiladigan turli fanlar
             </p>
           </div>
@@ -276,10 +276,10 @@ export default function FanlarPage() {
                       </div>
                     </div>
                     <CardContent className="pt-4">
-                      <p className="text-sm text-slate-600 mb-4 line-clamp-2">
+                      <p className="text-sm text-slate-500 mb-4 line-clamp-2">
                         {subject.description}
                       </p>
-                      <div className="flex justify-between text-xs text-slate-500">
+                      <div className="flex justify-between text-xs text-slate-400">
                         <span>{subject.teachersCount} o'qituvchi</span>
                         <span>{subject.weeklyHours} soat/hafta</span>
                       </div>
@@ -336,13 +336,13 @@ export default function FanlarPage() {
         </div>
       </section>
 
-      <section id="yutiqlar" className="py-20 px-4 bg-white">
+      <section id="yutiqlar" className="py-20 px-4 bg-background">
         <div className="container mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground/90 mb-4">
               Yutuqlarimiz
             </h2>
-            <p className="text-lg text-slate-600 max-w-2xl mx-auto">
+            <p className="text-lg text-slate-500 max-w-2xl mx-auto">
               O'quvchilarimizning erishgan natijalari
             </p>
           </div>
@@ -358,10 +358,10 @@ export default function FanlarPage() {
                   <div className="inline-flex p-4 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mb-4">
                     {iconMap[achievement.icon]}
                   </div>
-                  <h3 className="text-lg font-bold text-slate-900 mb-2">
+                  <h3 className="text-lg font-bold text-foreground/90 mb-2">
                     {achievement.title}
                   </h3>
-                  <p className="text-sm text-slate-600 mb-3">
+                  <p className="text-sm text-slate-500 mb-3">
                     {achievement.description}
                   </p>
                   <Badge variant="outline">{achievement.year}-yil</Badge>
