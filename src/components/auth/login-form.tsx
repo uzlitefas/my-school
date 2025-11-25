@@ -37,9 +37,9 @@ export function LoginForm({ className, ...props }: React.ComponentProps<"form">)
     >
       <FieldGroup>
         <div className="flex flex-col items-center gap-1 text-center">
-          <h1 className="text-2xl font-bold">Login to your account</h1>
+          <h1 className="text-2xl font-bold">Hisobingizga kiring</h1>
           <p className="text-muted-foreground text-sm text-balance">
-            Enter your email below to login to your account
+            Hisobingizga kirish uchun quyida elektron pochtangizni kiriting
           </p>
         </div>
 

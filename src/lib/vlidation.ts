@@ -11,6 +11,8 @@ export const registerformSchema = z.object({
     .min(8, "parol 8 tadan kop bolsin."),
   confirmPassword: z.string()
   .min(8,"qaytaruvchi parol 8 tadan kop bolsin") ,
+  sinf: z.string()
+    .min(3, "sinf kiritish shart"),
   email:z.string()
     .min(2, "Email 2 tadan kop bosin.")
     .max(20, "Email  20 tadan kam bosin."),
