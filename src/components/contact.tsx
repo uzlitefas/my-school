@@ -1,148 +1,131 @@
-import { Mail, Phone, Building, ChevronRight } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Checkbox } from "@/components/ui/checkbox";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
+import { MapPin, Phone, Mail, Clock } from "lucide-react";
 
-const contactMethods = [
-  {
-    icon: Mail,
-    title: "Email",
-    description:
-      "Have a question or need help? Drop us an email, and we'll respond within 24 hours.",
-    contact: "hello@relative.io",
-  },
-  {
-    icon: Phone,
-    title: "Phone",
-    description:
-      "Prefer to chat? Give us a call Monday–Friday, 9 AM–5 PM (PST).",
-    contact: "+1 (123) 456-7890",
-  },
-  {
-    icon: Building,
-    title: "Office",
-    description:
-      "Stop by our office @ 123 Productivity Ave, San Francisco, CA 94105",
-    contact: (
-      <a
-        href="#"
-        className="text-foreground inline-flex items-center gap-1 text-sm font-medium hover:underline"
-      >
-        Get Directions <ChevronRight className="size-4" />
-      </a>
-    ),
-  },
-];
-
-const formFields = [
-  {
-    id: "name",
-    label: "Name",
-    type: "text",
-    component: Input,
-    required: true,
-  },
-  {
-    id: "email",
-    label: "Email",
-    type: "email",
-    component: Input,
-    required: true,
-  },
-  {
-    id: "message",
-    label: "Message",
-    component: Textarea,
-    required: true,
-    props: { placeholder: "Type Your Message...", rows: 4 },
-  },
-];
-
-const ContactSection = () => {
+function Contact() {
   return (
-    <section className="py-32 px-2">
-      <div className="container mx-auto">
-        <div className="flex flex-col gap-6 py-4 lg:py-8">
-          <Badge
-            variant="outline"
-            className="bg-card w-fit gap-1 px-3 text-sm font-normal tracking-tight shadow-sm"
-          >
-            <Mail className="size-4" />
-            <span>Reach Out</span>
-          </Badge>
-          <h2 className="text-3xl leading-tight tracking-tight md:text-4xl lg:text-6xl">
-            Get in Touch
-          </h2>
-          <p className="text-muted-foreground max-w-[600px] tracking-[-0.32px]">
-            We're here to help—reach out with any questions or feedback.
-          </p>
+    <div className="min-h-screen bg-gray-50">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Aloqa</h1>
+          <p className="text-xl text-blue-100">Biz bilan bog'laning</p>
         </div>
+      </section>
 
-        {/* Form + Contact Info */}
-        <div className="flex justify-between gap-10 py-12 max-md:flex-col">
-          {/* Form */}
-          <form className="flex flex-1 flex-col gap-6">
-            {formFields.map((field) => (
-              <div key={field.id} className="space-y-2">
-                <Label className="text-sm font-normal" htmlFor={field.id}>
-                  {field.label}
-                </Label>
-                <field.component
-                  id={field.id}
-                  type={field.type}
-                  required={field.required}
-                  className="border-border bg-card"
-                  {...field.props}
-                />
-              </div>
-            ))}
-
-            <div className="flex items-center space-x-2">
-              <Checkbox id="terms" required />
-              <div className="grid gap-1.5 leading-none">
-                <Label
-                  htmlFor="terms"
-                  className="text-sm font-normal peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
-                >
-                  I accept the{" "}
-                  <a href="/terms" className="underline">
-                    Terms
-                  </a>
-                </Label>
-              </div>
-            </div>
-
-            <Button type="submit">Submit</Button>
-          </form>
-
-          {/* Contact Methods */}
-          <div className="grid flex-1 gap-6 self-start lg:grid-cols-2">
-            {contactMethods.map((method, index) => (
-              <div key={index} className="space-y-2">
-                <div className="flex items-center gap-2">
-                  <method.icon className="size-5" />
-                  <h3 className="text-2xl tracking-[-0.96px]">
-                    {method.title}
-                  </h3>
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <h2 className="text-3xl font-bold mb-8 text-gray-900">
+                Biz bilan bog'laning
+              </h2>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="bg-blue-600 rounded-full p-3">
+                    <MapPin className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">
+                      Manzil
+                    </h3>
+                    <p className="text-gray-600">
+                      Toshkent shahri, Chilonzor tumani, 12-kvartal
+                    </p>
+                  </div>
                 </div>
-                <div className="space-y-2 tracking-[-0.32px]">
-                  <p className="text-muted-foreground text-sm">
-                    {method.description}
-                  </p>
-                  <div className="text-muted-foreground text-sm">
-                    {method.contact}
+
+                <div className="flex items-start space-x-4">
+                  <div className="bg-green-600 rounded-full p-3">
+                    <Phone className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">
+                      Telefon
+                    </h3>
+                    <p className="text-gray-600">+998 71 123 45 67</p>
+                    <p className="text-gray-600">+998 90 123 45 67</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="bg-orange-600 rounded-full p-3">
+                    <Mail className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">
+                      Email
+                    </h3>
+                    <p className="text-gray-600">info@menimaktabim.uz</p>
+                    <p className="text-gray-600">admin@menimaktabim.uz</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="bg-sky-600 rounded-full p-3">
+                    <Clock className="h-6 w-6 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-lg text-gray-900">
+                      Ish vaqti
+                    </h3>
+                    <p className="text-gray-600">
+                      Dushanba - Juma: 8:00 - 17:00
+                    </p>
+                    <p className="text-gray-600">Shanba: 8:00 - 13:00</p>
                   </div>
                 </div>
               </div>
-            ))}
+            </div>
+
+            <div className="bg-white rounded-2xl shadow-xl p-8">
+              <h3 className="text-2xl font-bold mb-6 text-gray-900">
+                Xabar yuborish
+              </h3>
+              <form className="space-y-4">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Ismingiz
+                  </label>
+                  <input
+                    type="text"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="Ismingizni kiriting"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="Email manzilingizni kiriting"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Xabar
+                  </label>
+                  <textarea
+                    rows={5}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-600 focus:border-transparent"
+                    placeholder="Xabaringizni yozing"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Yuborish
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
-};
+}
 
-export default ContactSection;
+export default Contact;

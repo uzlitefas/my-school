@@ -1,20 +1,11 @@
-import { Book, Menu, Sunset, Trees, Zap } from "lucide-react";
-
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
 import {
   NavigationMenu,
-  NavigationMenuContent,
+  NavigationMenuList,
   NavigationMenuItem,
   NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu";
+import { Button } from "@/components/ui/button";
 import {
   Sheet,
   SheetContent,
@@ -25,265 +16,112 @@ import {
 import { ModeToggle } from "./mode-toggle";
 import { Link } from "react-router-dom";
 
-interface MenuItem {
-  title: string;
-  url: string;
-  description?: string;
-  icon?: React.ReactNode;
-  items?: MenuItem[];
-}
+const navItems = [
+  { title: "home", url: "/" },
+  { title: "about", url: "/about" },
+  { title: "galary", url: "/galary" },
+  { title: "bitiruvchilar", url: "/bitiruvchilar" },
+  { title: "contact", url: "/contact" },
+];
 
-interface Navbar1Props {
-  logo?: {
-    url: string;
-    src: string;
-    alt: string;
-    title: string;
-  };
-  menu?: MenuItem[];
-  auth?: {
-    login: {
-      title: string;
-      url: string;
-    };
-    signup: {
-      title: string;
-      url: string;
-    };
-  };
-}
-
-const Navbar = ({
-  logo = {
-    url: "/",
-    src: "https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg",
-    alt: "logo",
-    title: "1-Maktab",
-  },
-  menu = [
-    { title: "Asosiy bo'lim", url: "/" },
-    {
-      title: "Fanlar",
-      url: "/fanlar",
-      items: [
-        {
-          title: "Fanlar",
-          description: "Fanlar bo'imi",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/fanlar",
-        },
-        {
-          title: "O'quv markazlar",
-          description: "O'qishga kirish uchgun joylar",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/fanlar/centers",
-        },
-        {
-          title: "Togaraklar",
-          description: "Togarak va ular na",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/fanlar/courses",
-        },
-      ],
-    },
-    {
-      title: "Maktab",
-      url: "/maktab",
-      items: [
-        {
-          title: "1-Maktab",
-          description: "Maktab haqida malumotlar",
-          icon: <Book className="size-5 shrink-0" />,
-          url: "/maktab",
-        },
-        {
-          title: "Maktab tarixi",
-          description: "Maktabimizning tarixi haqida",
-          icon: <Trees className="size-5 shrink-0" />,
-          url: "/maktab/history",
-        },
-        {
-          title: "Bitiruvchilar haqida",
-          description: "maktabdagi bitiruvchilarimiz haqida",
-          icon: <Sunset className="size-5 shrink-0" />,
-          url: "/maktab/bitiruvchilar",
-        },
-        {
-          title: "Maktab Galareyasi",
-          description:
-            "Maktabimizning Galareyasi",
-          icon: <Zap className="size-5 shrink-0" />,
-          url: "/maktab/galarey",
-        },
-      ],
-    },
-    { title: "Qoidalar", url: "/rules" },
-  ],
-  auth = {
-    login: { title: "Login", url: "/login" },
-    signup: { title: "Sign up", url: "/register" },
-  },
-}: Navbar1Props) => {
+const Navbar = () => {
   return (
     <section className="py-4 px-2 fixed z-50 w-full bg-background">
       <div className="container mx-auto">
-        {/* Desktop Menu */}
-        <nav className="hidden items-center justify-between lg:flex">
+        <nav className="hidden lg:flex items-center justify-between">
           <div className="flex items-center gap-6">
-            {/* Logo */}
-            <Link to={logo.url} className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <img
-                src={logo.src}
+                src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg"
                 className="max-h-8 dark:invert"
-                alt={logo.alt}
+                alt="logo"
               />
               <span className="text-lg font-semibold tracking-tighter">
-                {logo.title}
+                1-Maktab
               </span>
             </Link>
-            <div className="flex items-center">
-              <NavigationMenu>
-                <NavigationMenuList>
-                  {menu.map((item) => renderMenuItem(item))}
-                </NavigationMenuList>
-              </NavigationMenu>
-            </div>
+
+            <NavigationMenu>
+              <NavigationMenuList>
+                {navItems.map((item) => (
+                  <NavigationMenuItem key={item.title}>
+                    <NavigationMenuLink
+                      href={item.url}
+                      className="px-4 py-2 text-sm font-medium hover:bg-muted rounded"
+                    >
+                      {item.title}
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                ))}
+              </NavigationMenuList>
+            </NavigationMenu>
           </div>
+
           <div className="flex gap-2">
-            <ModeToggle/>
+            <ModeToggle />
             <Button asChild variant="outline" size="sm">
-              <a href={auth.login.url}>{auth.login.title}</a>
+              <Link to="/login">Login</Link>
             </Button>
             <Button asChild size="sm">
-              <a href={auth.signup.url}>{auth.signup.title}</a>
+              <Link to="/register">Sign up</Link>
             </Button>
           </div>
         </nav>
 
-        {/* Mobile Menu */}
-        <div className="block lg:hidden">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link to={logo.url} className="flex items-center gap-2">
-              <img
-                src={logo.src}
-                className="max-h-8 dark:invert"
-                alt={logo.alt}
-              />
-            </Link>
-            <Sheet>
-              <SheetTrigger asChild>
-                <Button variant="outline" size="icon">
-                  <Menu className="size-4" />
-                </Button>
-              </SheetTrigger>
-              <SheetContent className="overflow-y-auto">
-                <SheetHeader>
-                  <SheetTitle className="flex gap-3">
-                    <a href={logo.url} className="flex items-center gap-2">
-                      <img
-                        src={logo.src}
-                        className="max-h-8 dark:invert"
-                        alt={logo.alt}
-                      />
-                    </a>
-                    <ModeToggle/>
-                  </SheetTitle>
-                </SheetHeader>
-                <div className="flex flex-col gap-6 p-4">
-                  <Accordion
-                    type="single"
-                    collapsible
-                    className="flex w-full flex-col gap-4"
-                  >
-                    {menu.map((item) => renderMobileMenuItem(item))}
-                  </Accordion>
+        <div className="lg:hidden flex items-center justify-between">
+          <Link to="/">
+            <img
+              src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg"
+              className="max-h-8 dark:invert"
+              alt="logo"
+            />
+          </Link>
 
-                  <div className="flex flex-col gap-3">
-                    <Button asChild variant="outline">
-                      <Link to={auth.login.url}>{auth.login.title}</Link>
-                    </Button>
-                    <Button asChild>
-                      <Link to={auth.signup.url}>{auth.signup.title}</Link>
-                    </Button>
-                  </div>
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="icon">
+                <Menu className="size-4" />
+              </Button>
+            </SheetTrigger>
+            <SheetContent className="overflow-y-auto">
+              <SheetHeader>
+                <SheetTitle className="flex gap-3">
+                  <Link to="/" className="flex items-center gap-2">
+                    <img
+                      src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/logos/shadcnblockscom-icon.svg"
+                      className="max-h-8 dark:invert"
+                      alt="logo"
+                    />
+                  </Link>
+                  <ModeToggle />
+                </SheetTitle>
+              </SheetHeader>
+
+              <div className="p-4 flex flex-col gap-6">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.title}
+                    to={item.url}
+                    className="text-md font-semibold block py-1"
+                  >
+                    {item.title}
+                  </Link>
+                ))}
+
+                <div className="flex flex-col gap-3">
+                  <Button asChild variant="outline">
+                    <Link to="/login">Login</Link>
+                  </Button>
+                  <Button asChild>
+                    <Link to="/register">Sign up</Link>
+                  </Button>
                 </div>
-              </SheetContent>
-            </Sheet>
-          </div>
+              </div>
+            </SheetContent>
+          </Sheet>
         </div>
       </div>
     </section>
-  );
-};
-
-const renderMenuItem = (item: MenuItem) => {
-  if (item.items) {
-    return (
-      <NavigationMenuItem key={item.title}>
-        <NavigationMenuTrigger>{item.title}</NavigationMenuTrigger>
-        <NavigationMenuContent className="bg-popover text-popover-foreground">
-          {item.items.map((subItem) => (
-            <NavigationMenuLink asChild key={subItem.title} className="w-80">
-              <SubMenuLink item={subItem} />
-            </NavigationMenuLink>
-          ))}
-        </NavigationMenuContent>
-      </NavigationMenuItem>
-    );
-  }
-
-  return (
-    <NavigationMenuItem key={item.title}>
-      <NavigationMenuLink
-        href={item.url}
-        className="bg-background hover:bg-muted hover:text-accent-foreground group inline-flex h-10 w-max items-center justify-center rounded-md px-4 py-2 text-sm font-medium transition-colors"
-      >
-        {item.title}
-      </NavigationMenuLink>
-    </NavigationMenuItem>
-  );
-};
-
-const renderMobileMenuItem = (item: MenuItem) => {
-  if (item.items) {
-    return (
-      <AccordionItem key={item.title} value={item.title} className="border-b-0">
-        <AccordionTrigger className="text-md py-0 font-semibold hover:no-underline">
-          {item.title}
-        </AccordionTrigger>
-        <AccordionContent className="mt-2">
-          {item.items.map((subItem) => (
-            <SubMenuLink key={subItem.title} item={subItem} />
-          ))}
-        </AccordionContent>
-      </AccordionItem>
-    );
-  }
-
-  return (
-    <a key={item.title} href={item.url} className="text-md font-semibold">
-      {item.title}
-    </a>
-  );
-};
-
-const SubMenuLink = ({ item }: { item: MenuItem }) => {
-  return (
-    <Link
-      className="hover:bg-muted hover:text-accent-foreground flex min-w-80 select-none flex-row gap-4 rounded-md p-3 leading-none no-underline outline-none transition-colors"
-      to={item.url}
-    >
-      <div className="text-foreground">{item.icon}</div>
-      <div>
-        <div className="text-sm font-semibold">{item.title}</div>
-        {item.description && (
-          <p className="text-muted-foreground text-sm leading-snug">
-            {item.description}
-          </p>
-        )}
-      </div>
-    </Link>
   );
 };
 

@@ -1,110 +1,127 @@
-const images = {
-  about1:
-    "https://library.shadcnblocks.com/images/block/photos/annie-spratt-MChSQHxGZrQ-unsplash.jpg",
-  about2:
-    "https://library.shadcnblocks.com/images/block/photos/annie-spratt-AkftcHujUmk-unsplash.jpg",
-  about3:
-    "https://library.shadcnblocks.com/images/block/photos/annie-spratt-vGgn0xLdy8s-unsplash.jpg",
-  about4:
-    "https://library.shadcnblocks.com/images/block/photos/johnson-wang-iI4sR_nkkbc-unsplash.jpg",
-  about5:
-    "https://library.shadcnblocks.com/images/block/photos/nastuh-abootalebi-eHD8Y1Znfpk-unsplash.jpg",
-  about6:
-    "https://library.shadcnblocks.com/images/block/photos/alvin-engler-bIhpiQA009k-unsplash.jpg",
-};
+import { Target, Eye, Heart } from "lucide-react";
 
-const AboutSection = () => {
+function About() {
   return (
-    <section className="py-32 px-2">
-      <div className="container mx-auto">
-        <div className="flex flex-col items-center justify-start gap-6 lg:flex-row">
-          <div className="flex w-full flex-col items-start justify-start gap-24 lg:w-1/2">
-            <div className="pr-6">
-              <h1 className="mb-6 text-4xl font-bold md:text-5xl lg:mb-10 lg:text-6xl">
-                Our Story
-              </h1>
-              <p className="mb-9 lg:text-xl font-medium">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed
-                alias repellendus perferendis earum facilis est soluta
-                consequatur placeat hic aliquid exercitationem, ex molestias nam
-                veniam distinctio maxime culpa magnam autem.
-              </p>
-              <p className="text-muted-foreground text-lg">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Similique dolore quas placeat expedita aliquam rerum tempore
-                amet, sequi ipsa ad quam, adipisci exercitationem nihil,
-                sapiente laborum minus doloribus consequuntur sed. Quo
-                repudiandae nihil quas voluptates, aut beatae reiciendis aliquid
-                perspiciatis quae explicabo inventore temporibus laborum,
-                nostrum omnis quos excepturi dolorum reprehenderit vel labore
-                eaque libero perferendis? Qui illo numquam beatae?
+    <div className="min-h-screen">
+      <section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            Maktabimiz Haqida
+          </h1>
+          <p className="text-xl text-blue-100">Bilim va tarbiya markazi</p>
+        </div>
+      </section>
+
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            <div className="text-center p-8 rounded-xl bg-blue-50">
+              <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Target className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                Maqsadimiz
+              </h3>
+              <p className="text-gray-600">
+                Har bir o'quvchini bilimli, ma'naviyatli va vatanparvar shaxs
+                sifatida tarbiyalash
               </p>
             </div>
 
-            <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
-              <img
-                src={images.about1}
-                alt="about 1"
-                className="aspect-[0.7] w-full rounded-lg object-cover md:w-1/2"
-              />
-              <div className="flex w-full flex-col items-center justify-center gap-6 md:w-1/2">
-                <img
-                  src={images.about2}
-                  alt="about 2"
-                  className="aspect-[1.1] rounded-lg object-cover"
-                />
-                <img
-                  src={images.about3}
-                  alt="about 3"
-                  className="aspect-[0.7] rounded-lg object-cover"
-                />
+            <div className="text-center p-8 rounded-xl bg-green-50">
+              <div className="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Eye className="h-8 w-8 text-white" />
               </div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                Vazifamiz
+              </h3>
+              <p className="text-gray-600">
+                Zamonaviy ta'lim texnologiyalari orqali yuqori sifatli bilim
+                berish
+              </p>
+            </div>
+
+            <div className="text-center p-8 rounded-xl bg-orange-50">
+              <div className="bg-orange-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Heart className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-2xl font-bold mb-3 text-gray-900">
+                Qadriyatlarimiz
+              </h3>
+              <p className="text-gray-600">
+                Halollik, mas'uliyat, hurmat va doimiy o'sish
+              </p>
             </div>
           </div>
 
-          <div className="flex w-full flex-col items-center justify-center gap-12 pt-12 lg:w-1/2 lg:pt-48">
-            <div className="flex flex-col items-center justify-center gap-6 md:flex-row">
-              <img
-                src={images.about4}
-                alt="about 4"
-                className="aspect-[0.9] w-full rounded-lg object-cover md:w-1/2"
-              />
-              <div className="flex w-full flex-col items-center justify-center gap-6 md:w-1/2">
-                <img
-                  src={images.about5}
-                  alt="about 5"
-                  className="aspect-[0.8] rounded-lg object-cover"
-                />
-                <img
-                  src={images.about6}
-                  alt="about 6"
-                  className="aspect-[0.9] rounded-lg object-cover"
-                />
-              </div>
-            </div>
+          <div className="prose max-w-none">
+            <h2 className="text-3xl font-bold mb-6 text-gray-900">
+              Maktabimiz Tarixi
+            </h2>
+            <p className="text-gray-700 mb-4 text-lg leading-relaxed">
+              Maktabimiz 2003-yilda tashkil etilgan bo'lib, 20 yildan ortiq vaqt
+              davomida minglab o'quvchilarni hayotga tayyorlab kelmoqda. Biz
+              faqat bilim berishni emas, balki o'quvchilarni har tomonlama
+              rivojlantirish, ularning ijodiy qobiliyatlarini ro'yobga chiqarish
+              va kelajak uchun poydevor yaratishni o'z oldimizga maqsad qilib
+              qo'yganmiz.
+            </p>
+            <p className="text-gray-700 mb-4 text-lg leading-relaxed">
+              Bugungi kunda maktabimizda 500 dan ortiq o'quvchi ta'lim olmoqda.
+              Bizning o'qituvchilar jamoasi 50 dan ortiq malakali va tajribali
+              pedagog kadrlardan iborat. Har bir o'qituvchi o'z sohasining
+              mutaxassisi bo'lib, o'quvchilarga individual yondashuv asosida
+              ta'lim berishadi.
+            </p>
+          </div>
+        </div>
+      </section>
 
-            <div className="px-8">
-              <h1 className="mb-8 text-2xl font-semibold lg:mb-6">
-                Our Workplace
-              </h1>
-              <p className="mb-9 lg:text-xl font-medium">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit
-                quae vel rem tenetur illum aspernatur. Ea, facere soluta cumque
-                laboriosam repudiandae quaerat inventore dolores saepe pariatur,
-                adipisci atque voluptate doloribus!{" "}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold mb-8 text-gray-900 text-center">
+            Imkoniyatlarimiz
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="text-xl font-bold mb-3 text-blue-600">
+                Zamonaviy Texnologiyalar
+              </h3>
+              <p className="text-gray-700">
+                Kompyuter xonalari, interaktiv doskalar va zamonaviy o'quv
+                qurollari
               </p>
-              <p className="text-muted-foreground text-lg">
-                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure
-                aliquid laudantium minus distinctio exercitationem odio non
-                nihil blanditiis quae, beatae assumenda ad reiciendis soluta
-                dolorem. Natus repellendus quidem dolorum temporibus!{" "}
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="text-xl font-bold mb-3 text-blue-600">
+                Sport Majmuasi
+              </h3>
+              <p className="text-gray-700">
+                Zamonaviy sport zali, futbol va basketbol maydonlari
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="text-xl font-bold mb-3 text-blue-600">
+                Keng Kutubxona
+              </h3>
+              <p className="text-gray-700">
+                10000 dan ortiq kitob va elektron resurslar
+              </p>
+            </div>
+            <div className="bg-white p-6 rounded-xl shadow-md">
+              <h3 className="text-xl font-bold mb-3 text-blue-600">
+                To'garaklar
+              </h3>
+              <p className="text-gray-700">
+                Robotexnika, shaxmat, musiqa, san'at va boshqa ko'plab
+                to'garaklar
               </p>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
-};
+}
 
-export default AboutSection;
+export default About;
