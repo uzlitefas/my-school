@@ -1,16 +1,17 @@
-import { RegisterForm } from "@/components/auth/register-form"
-import { ArrowBigLeft } from "lucide-react"
-import { Link } from "react-router-dom"
-
+import { RegisterForm } from "@/components/auth/register-form";
+import { useTheme } from "@/hooks/useTheme";
+import { ArrowBigLeft } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function RegisterPage() {
+  const theme = useTheme().theme;
   return (
     <div className="grid min-h-svh lg:grid-cols-2">
       <div className="flex flex-col gap-4 p-6 md:p-10">
         <div className="flex justify-center gap-2 md:justify-start">
           <Link to={"/"} className="flex items-center gap-2 font-medium">
             <div className="bg-primary text-primary-foreground flex size-6 items-center justify-center rounded-md">
-                <ArrowBigLeft className="size-4" />
+              <ArrowBigLeft className="size-4" />
             </div>
             Orqaga
           </Link>
@@ -23,11 +24,15 @@ export default function RegisterPage() {
       </div>
       <div className="bg-muted relative hidden lg:block">
         <img
-          src="https://deifkwefumgah.cloudfront.net/shadcnblocks/block/placeholder-1.svg"
+          src={
+            theme === "dark"
+              ? "/assets/moutain.jpg"
+              : "/assets/greenmoutain.jpg"
+          }
           alt="Image"
-          className="absolute inset-0 h-full w-full object-cover dark:brightness-[0.2] dark:grayscale"
+          className="absolute inset-0 h-full w-full object-cover"
         />
       </div>
     </div>
-  )
+  );
 }

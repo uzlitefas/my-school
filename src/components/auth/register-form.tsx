@@ -1,19 +1,17 @@
-import { cn } from "@/lib/utils"
-import { z } from "zod"
-import { Button } from "@/components/ui/button"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { useForm } from "react-hook-form"
-import {
-  Field,
-  FieldDescription,
-  FieldGroup,
-} from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
-import {  registerformSchema } from "@/lib/vlidation"
+import { cn } from "@/lib/utils";
+import { z } from "zod";
+import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
+import { Field, FieldDescription, FieldGroup } from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { registerformSchema } from "@/lib/vlidation";
+import { Link } from "react-router-dom";
 
-export function RegisterForm({ className, ...props }: React.ComponentProps<"form">) {
-  
-  // ❗ Hooklar faqat komponent boshida bo'ladi
+export function RegisterForm({
+  className,
+  ...props
+}: React.ComponentProps<"form">) {
   const form = useForm<z.infer<typeof registerformSchema>>({
     resolver: zodResolver(registerformSchema),
     defaultValues: {
@@ -22,13 +20,12 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"form
       firstName: "",
       lastname: "",
       confirmPassword: "",
-        sinf: "",
+      sinf: "",
     },
-  })
+  });
 
-  // ✔ To'g'ri joyda submit funksiyasi
   function onSubmit(data: z.infer<typeof registerformSchema>) {
-    console.log(data)
+    console.log(data);
   }
 
   return (
@@ -37,85 +34,96 @@ export function RegisterForm({ className, ...props }: React.ComponentProps<"form
       className={cn("flex flex-col gap-6", className)}
       {...props}
     >
-
       <FieldGroup>
         <div className="flex flex-col items-center text-center">
-          <h1 className="text-2xl font-bold">Hisobingizga kiring</h1>
-          <p className="text-muted-foreground text-sm text-balance">
-            Hisobingizga kirish uchun quyida elektron pochtangizni kiriting
+          <h1 className="text-2xl font-bold text-emerald-600">
+            Ro'yxatdan o'ting
+          </h1>
+          <p className="text-emerald-500 text-sm">
+            Hisobingizni yaratish uchun quyidagi ma'lumotlarni kiriting
           </p>
         </div>
-        {/* firstName */}
+
         <Field>
           <Input
             id="firstName"
             type="text"
             placeholder="Ismingizni kiriting"
+            className="focus:border-emerald-500 focus:ring-emerald-500"
             {...form.register("firstName")}
           />
         </Field>
-        {/* lastName */}
+
         <Field>
-            <Input
+          <Input
             id="lastname"
-            type="text" 
+            type="text"
             placeholder="Familiyangizni kiriting"
+            className="focus:border-emerald-500 focus:ring-emerald-500"
             {...form.register("lastname")}
           />
         </Field>
-          {/* EMAIL */}
+
         <Field>
           <Input
             id="email"
             type="email"
             placeholder="m@example.com"
+            className="focus:border-emerald-500 focus:ring-emerald-500"
             {...form.register("email")}
           />
         </Field>
-         {/* sinf */}
+
         <Field>
-            <Input
+          <Input
             id="sinf"
             placeholder="Sinfingizni kiriting"
+            className="focus:border-emerald-500 focus:ring-emerald-500"
             {...form.register("sinf")}
           />
         </Field>
-        {/* PASSWORD */}
+
         <Field>
-         
-          <Input id="password" type="password" placeholder="Parolni kiriting" {...form.register("password")} />
+          <Input
+            id="password"
+            type="password"
+            placeholder="Parolni kiriting"
+            className="focus:border-emerald-500 focus:ring-emerald-500"
+            {...form.register("password")}
+          />
         </Field>
-         {/* confirmPassword */}
+
         <Field>
-            <Input
+          <Input
             id="confirmPassword"
             type="password"
             placeholder="Parolingizni qayta kiriting"
+            className="focus:border-emerald-500 focus:ring-emerald-500"
             {...form.register("confirmPassword")}
           />
         </Field>
-       
+
         <Field>
-          <Button type="submit">Login</Button>
-           <div className="flex items-center">
-            <a
-              href="#"
-              className="ml-auto text-sm underline-offset-4 hover:underline"
-            >
-              Forgot your password?
-            </a>
-          </div>
+          <Button
+            type="submit"
+            className="bg-emerald-500 hover:bg-emerald-600 text-white"
+          >
+            Register
+          </Button>
         </Field>
+
         <Field>
-         
-          <FieldDescription className="text-center">
-            Don&apos;t have an account?{" "}
-            <a href="#" className="underline underline-offset-4">
-              Sign up
-            </a>
+          <FieldDescription className="text-center text-emerald-600">
+            Allaqachon hisobingiz bormi?{" "}
+            <Link
+              to="/login"
+              className="underline underline-offset-4 hover:text-emerald-700"
+            >
+              Sign In
+            </Link>
           </FieldDescription>
         </Field>
       </FieldGroup>
     </form>
-  )
+  );
 }
