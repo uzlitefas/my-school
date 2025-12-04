@@ -4,7 +4,6 @@ import { Navbar } from "./components/shared/navbar";
 import HomePage from "./pages/home";
 import StatistikaBitiruvchilarPage from "./pages/statistika-bitiruvchilar-page";
 import LoginPage from "./pages/auth/login";
-import RegisterPage from "./pages/auth/register";
 import About from "./components/about";
 import Gallery from "./components/galary";
 import Contact from "./components/contact";
@@ -15,7 +14,6 @@ function App() {
     <div className="w-full">
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/register" element={<RegisterPage />} />
         <Route
           path="/"
           element={
