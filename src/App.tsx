@@ -6,9 +6,9 @@ import StatistikaBitiruvchilarPage from "./pages/statistika-bitiruvchilar-page";
 import LoginPage from "./pages/auth/login";
 import RegisterPage from "./pages/auth/register";
 import About from "./components/about";
-import Gallery from "./components/galary";
 import Contact from "./components/contact";
 import AdminPanel from "./pages/admin-panel";
+import Gallery from "./components/gallery";
 
 function App() {
   return (
